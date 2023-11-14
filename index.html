@@ -1,0 +1,328 @@
+<!--kiến thức cơ bản-->
+<!--KHÓA HỌC HTLM/CSS-->
+<!DOCTYPE html> <!--document type định nghĩa loại tài liệu-->
+
+<html>     <!--mỗi file html có 1 khai báo-->
+
+    <head>   <!--phần đầu-->
+
+        <title>F8</title>  <!--Tiêu đề trang web, phần chứ trắng là nội dung sẽ hiển thị trên web-->
+        <meta charset="utf-8"> <!--Hỗ trợ hiển thị tiếng việt-->
+
+        <!--CSS(có 3 cách gọi internal, exernal, inline, có thể gọi bằng tên thẻ tag, #id, .class)-->
+        <!--Đây là kiểu viết CSS 'internal':sử dụng cặp style trong html để viết CSS-->
+        <style> /*Tạo thuộc tính css: gọi hàm style, gọi tên thuộc tính(ex:h1 {}), điền thuộc tính vào ngoặc nhọn */
+            h1:active { /*:active :gọi kèm với thẻ và các thành phần trong thẻ sẽ thay đổi khi tác động*/
+                color: blue;
+                font-size: 30px;
+                opacity: 1;  /*chỉnh đậm nhạt đối tượng*/
+               
+            }  
+            h1::first-letter{
+                font-size: 50px;
+                color: blueviolet;
+            }
+            h1::first-line{
+                color: aqua;
+                font-size: 40px;
+            }
+            h1::selection{
+                color: crimson;
+                background-color: cadetblue;
+
+            }
+            .box{
+                height: calc(40px + 50px); /*cacl() hàm tính toán*/
+                width: 500px;
+                background-color: rgb(11, 83, 142);
+                left: 120px; top: 5px;
+                
+            }
+            h1#the_id:hover{ /*:hover :gọi kèm với thẻ và các thành phần trong thẻ sẽ thay đổi khi đưa chuột vào*/
+                color: green;
+            }
+            .box::before{
+                content: "";
+                display: block;
+                width: 30px;
+                height: 30px;
+                background-color: #fff;
+                box-sizing: border-box; /*tổng kích thước ban đầu của element không thay đổi khi thêm magin, boder, padding,
+                                        hoạt động bằng các tự tính toán trừ đi kích thước của content để khi thêm m,b,p vào kích thước element ko đổi*/                 
+            }
+            .box1{
+                background-color: rgb(143, 13, 13);
+                border-top-width: 10px; /*thuộc tính viền(độ rộng viền) cách viết ngắn:boder-top: 10px solid #333;*/
+                border-left-width: 12px;
+                border-right-width: 18px;
+                border-bottom-width: 19px;
+                border-style: solid;/*thuộc tính viền(kiểu viền ví dụ nét liền hay đứt)*/
+                border-color: darkblue;
+                /* float: left; làm cho các element bị đẩy sang trái */
+            }
+            .box2{
+                height: 500px;
+                background-image:url(https://www.freepnglogos.com/uploads/star-png/star-vector-png-transparent-image-pngpix-21.png), /*tạo nền bằng ảnh*/
+                                 linear-gradient(180deg, rgba(119, 111, 23, 0.852), rgba(255, 0, 0, 0.8)), /*lớp phủ trong suốt*/
+                                 url(https://149695847.v2.pressablecdn.com/wp-content/uploads/2020/08/What-is-Computer-Vision-scaled.jpg),/*hình nào viết trước ở trên*/
+                                 url('/img/placeholder.png');/*ảnh dự phòng trong source code*/
+                background-size: 70% /*chiều rộng ảnh, chiều cao tự động, nếu thêm chiều cao vào ko đúng tỉ lệ ảnh sẽ bị méo*/ /*contain :lấy cạnh ngang hoặc cạnh dọc sao cho ko làm thay đổi bức ảnh
+                cover :lấy chiều bức ảnh dài hơn dù làm méo bức ảnh*/;
+                background-repeat: no-repeat /*tránh bị lặp lại ảnh*/;
+                padding: 10px 12px 14px 16px; /*thuộc tính đệm thêm cả 4 hướng*/
+                margin-top: 10px; /*thuộc tính đệm thêm ở ngoài cùng là khoảng cách đẩy ra từ element(khối được tạo từ hàm div) tùy theo hướng*/
+                border-radius: 16px; /* Bo tròn góc 16px */
+                background-origin: padding-box; /*muốn hình ảnh đổ từ lớp boder, padding, content*/
+                display: flex; /*căn giữa thẻ(có thẻ này mới dùng được cặp thẻ align-item và justify-content*/
+                margin: auto;/*căn giữa thẻ*/
+                align-items: center;/*căn giữa thẻ theo chiều cao*/
+                justify-content: center;/*căn giữa thẻ theo chiều ngang*/
+            }
+            .box3{
+                height: 250px;
+                background-image: linear-gradient(90deg/*góc chuyển)*/, rgb(40, 58, 107)/*màu kết quả*/, green/*màu bắt đầu*/);/*chuyển từ màu bắt đầu sang màu kết quả*/
+                padding-top: 10px; /*đệm thêm(từng hướng) lên trên 10px*/
+                padding-left: 10px;
+                padding-bottom: 10px;
+                padding-right: 10px;
+                background-position: right 100px; /*vị trí đối tượng(cách right 100px)*/
+                text-align: center; /*căn giữa đối tượng theo chiều ngang*/
+                line-height: 230px;/*căn giữa đối tượng theo chiều cao*/
+            }
+        </style> 
+        <!--Đây là kiểu viết CSS 'external':tạo thư mục .css để viết CSS, dùng tag link để gọi thư mục đó ra trong html-->
+        <link rel="stylesheet" href="main.css"> 
+        <!--Đây là kiểu viết CSS 'inline': gọi thuộc tính css style ngay trong tag muốn gán thuộc tính(attrbute style) ex:<p style="color: red;">Chứa nội dung </p>-->
+
+    </head>
+
+    <body>  <!--Phần thân-->
+
+        <a href="home.html">ejrhfn reiuh qpurfh pquofh AAAA</a>
+
+        <div> <!--Tạo khối nội dung riêng biệt cho trang web-->
+            <h1> Thẻ h1 là thẻ tiêu đề từ h1-h6</h1>  <!--Thẻ tiêu dề,từ h1-h6, chữ sẽ nhỏ lại dần(heading) từ 1-6-->
+            <h2 title="những tag chỗ này gọi attribute style(thuộc tính):viết thuộc tính ngay tại thẻ" >dinh le quang trieu</h2>
+            <h1 id="the_id"> id là thuộc tính gán tên cho đối tượng<br/> thẻ br dùng để xuống dòng</h1> <!--Tạo thuộc tính id, trong 1 tài liệu ko đc đặt id giống nhau để phân biệt các thẻ tag giống nhau-->
+            <h2 class="the_class" >class là tt giúp cho nhiêu đối tượng trùng class có thể đc gọi cùng lúc</h2> <!--Tạo thuộc tính id trong 1 tài liệu khi muốn nhiều thẻ tag khác nhau có cùng id-->
+            <h2 class="the_class the_class2">dinh le quang trieu</h2> <!--CSS selectors thân thuộc với chúng ta nhất là id và class.-->
+            <h1 class="the_class the_class2"> Xin chao cac ban</h1> <!--Một thẻ có thể có nhiều class, mỗi class cách nhau bằng 1 khoảng trắng (dấu space).-->
+            
+    
+            <input type="text"> <!--Tạo thẻ input có thể nhập nội dung vào-->
+            <input type="checkbox"> <!--Tạo thẻ có thể tick nội dung dạng ô-->
+            <input type="radio"> <!--Tạo thẻ có thể tick dung hình dạng tròn-->
+            <input name="abc" type="radio"> <!--tạo thẻ có tên trùng nên chỉ có thể chọn 1 trong số-->
+            <input name="abc" type="radio">
+    
+            <p style="color: orange;">Chứa nội dung </p>  <!--Thẻ đoạn văn p(paragraph)-->
+    
+            <img src="link hình ảnh" alt="chứa nội dung khi ảnh scr ko quét được" width="độ rộng%">  <!--Thẻ ảnh img(image), src(source) -->
+            <img onerror="this.src='/img/placeholder.png'" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9bJnIDPk8tGKFGlwIHfA6SvtyOzEzmf49sA&usqp=CAU"><!--
+                nếu ảnh chỉnh bị lỗi thì được thay thế bằng ảnh trong onerror-->
+            
+    
+            <a href="link liên kết">dùng đề gắn link bên ngoài vào và viết nội dung thế cho link đó tại đây</a>  <!--thẻ a anchor(mỏ neo), tạo đường liên kết với bên ngoài vào-->
+    
+            <ul>        <!--Thẻ ul danh sách unodered list: danh sách tùy ý sắp xếp thứ tự sửa ul thành ul thì dấu chấm danh sách sẽ biến thành số-->
+                <li> ul là 1 dnh sách</li> <!--thẻ li, từng hàng trong danh sách-->
+                <li> li là mỗi hàng trong danh sách </li>
+            </ul>
+    
+            <table> <!--thẻ table dùng để tạo bảng-->
+                <thead> <!--Tiêu đề bảng, phần đầu bảng-->
+                    <th>thead là tiêu đề của bảng</th><!--Nội dung tiêu đề ,table heading-->
+                    <th>mỗi th là 1 ô nội dug của tiêu đề</th>
+                    <th>Địa chỉ</th>
+                </thead>
+                <tbody> <!--Phần thân bảng-->
+                    <tr> <!--table round:dòng bảng, mỗi tr là 1 dòng-->
+                        <td>mỗi tr là 1 hàng nội dung trong bảng</td> <!--nội dung trong dòng tương ứng với thẻ th-->
+                        <td>mỗi td là 1 ô nội dung trong tr và tương ứng với th</td>
+                        <td>quang nam</td>
+                    </tr> 
+                    <tr>
+                        <td>2</td> 
+                        <td>dinh</td>
+                        <td>da nang</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <button id="nut_nhan">Đăng kí</button> <!--Thẻ button tạo nút nhấn-->
+
+            <b>
+                laf ther in ddaamj
+            </b>
+
+        </div>
+
+
+            <div class="box box1"></div> <!--Tạo khối có id là box-->
+            <div class="box box2"> căn giữa</div>
+            <div class="box box3">thuộc tính căn giữa</div>
+
+
+            <pre> <!--giữ nguyên form-->
+                My Bonnie lies over the ocean.
+              
+                My Bonnie lies over the sea.
+              </pre>
+               
+               <!--in đậm-->
+               <p>WWF's mission is to stop the <strong>degradation</strong> of our planet's natural environment.</p>
+               
+               <!--hightlight-->
+               <p>HTML is<mark>FUN</mark>to learn!</p>
+              
+            
+
+
+
+    </body>
+
+
+</html> 
+
+
+
+<!--Tạo file/folder thì bấm vào thư mục muốn chứa file/folder đó rồi bấm new file/folder
+Nếu muốn tạo ngoài cùng thì bấm ra ngoài rồi bấm new file/folder-->
+
+
+
+<!-- Ví dụ về cách gọi id trong css /* Lựa chọn toàn bộ các thẻ */
+* {
+    /* `font-style: italic` là chữ nghiêng */
+    font-style: italic;
+}
+
+/* Lựa chọn toàn bộ các thẻ p */
+p {
+    /* `text-decoration: underline` là chữ gạch chân */
+    text-decoration: underline;
+}
+
+/* Lựa chọn toàn bộ các thẻ có class-1 */
+.class-1 {
+    color: red;
+}
+
+/* Lựa chọn toàn bộ thẻ đồng thời có cả class-2 và class-3 */
+.class-2.class-3 {
+    color: green;
+}
+
+/* Lựa chọn thẻ có class-5 là con của thẻ class-4 */
+.class-4 .class-5 {
+    color: violet;
+}
+
+/* Lựa chọn toàn bộ các thẻ p có class-6 */
+p.class-6 {
+    color: blue;
+}
+
+/* Lựa chọn toàn bộ các thẻ h3, h4 */
+h3, h4 {
+    color: brown;
+}
+
+/* Lựa chọn toàn bộ thẻ li là con của class list */
+.list li {
+    color: deepskyblue;
+}
+
+/* Lựa chọn toàn bộ thẻ li là con trực tiếp của thẻ có class list */
+.list > li {
+    color: fuchsia;
+}
+
+/* Lựa chọn 1 thẻ p đứng liền kề sau class-9 */
+.class-9 + p {
+    color: goldenrod;
+}
+
+/* Lựa chọn toàn bộ thẻ p đứng sau class-10 */
+.class-10 ~ p {
+    color: limegreen;
+} -->
+
+
+
+<!-- cho điểm ưu tiên css, cái nào sau cùng thì ưu tiên
+* tất cả 0 điểm
+thẻ tag 1 điểm
+class 10 điểm
+id 100 điểm
+inline 1000 điểm
+!important(viết ngay chỗ màu) quan trọng nhất, nhiều !important quay lại dựa vào điểm, có thẻ kết hợp để tạo điểm cao hơn -->
+
+
+
+
+<!-- CSS unit(đơn vị)
+giá trị tyệt đối:không thay đổi khi kích thước trang web thay đổi
+px 
+
+giá trị tương đối:thay đổi khi kích thước trang web thay đổi
+% kích thước thay đổi theo kích thước thẻ chứa nó
+rem phụ thuộc vào px font size thẻ html
+em phụ thuộc vào kich thước px font size của thẻ gần nhất chứa nó
+vw :viewport width xvw tương ứng với x% chiều ngang trình duyệt 
+vh :viewpot height xvh tương ứng với x% chiều dọc trình duyệt
+ thẻ html, mặc định tại trình duyệt thì font-size: 16px -->
+
+ <!-- CSS function
+ var() dùng hàm :root{--text-color:red;} đẻ tạo biến và dùng hàm var(--text-color) để gọi biến ra
+ linear()-gradient()
+ rgba(x,x,x) :pha màu nhìn xuyên qua được
+ rgb(x,x,x) :pha màu, không có tham số alpha nên ko tạo màu trong suốt đc
+ cacl() hàm tính toán
+ attr() -->
+
+
+ <!-- CSS pseudo-classes(lớp giả)
+ :root
+ :hover :gọi kèm với thẻ và các thành phần trong thẻ sẽ thay đổi khi đưa chuột vào
+ :active :gọi kèm với thẻ và các thành phần trong thẻ sẽ thay đổi khi tác động
+ :firt-child
+ :last-child -->
+
+ <!-- CSS pseudo-element(element giả)
+ ::before :tạo khôi ở trên
+ ::after :tạo khối ở dưới
+ ::first-letter :css cho chữ đầu tiên
+ ::first-line :css cho dòng đầu tiên
+ ::seclection : đối tượng nào được seclection sẽ thể hiện thuộc tính css khi được lựa chọn -->
+
+ <!-- thuộc tính position được dùng khi muốn di chuyển đối tượng nằm trong 1 đối tượng khác
+ relative : lấy chính nó làm gốc tọa độ
+ absolute : lấy thẻ div chứa nó có thuộc tính position làm gốc tọa độ
+ fixed : đây là position phụ thuộc vào trình duyệt(đứng yên khi trang web thay đổi)(ex:muốn thanh tiêu đề dạng fixed dính sát vào ví dụ như mép trên thì cho top left right: 0px;)
+ stick : đến 1 vị trí quy định trước sẽ dừng
+ muốn thẻ con phủ hết thẻ cha thi đặt thẻ cha co position bất kì và thẻ con có position absolute, rồi đặt thẻ con có top left right bottom: 0px; -->
+
+
+ <!-- Cách copy nhiều đối tượng nằm rời rạc, điền thông tin cho nhièu đối tượng
+Bôi điểm chung của đối tượng muốn chọn, mỗi lần nhấn 'ctrl+D' nó sẽ chọn thêm 1 đối tượng trùng với nó
+                                                nhấn 'ctrl+shift+L' nó sẽ chọn tất cả đối tượng trùng với nó
+Rồi bấm mũi tên để tới vị trí đầu tiên của các đối tượng muốn chọn
+Bấm 'Alt+Shitf'+ mũi tên sang phía có thể select đối tượng, bấm copy và past ở nơi khác.
+
+Muốn viết thêm kí hiệu cho các đối tương được chọn: Chọn đối tượng, giữ phím Alt, chọn từng đối tượng, viết thêm kí tự
+                                                    Chọn phím end để xuống cuối, mũi tên để điều hướng lên xuống   -->
+
+
+<!-- Cách tìm tên thuộc tính: css tên thuộc tính property -->
+
+<!-- magin :đẩy cả thẻ div đi 1 khoảng ta không nhìn thấy
+     padding: đẩy đối tượng trong thẻ div đi 1 khoảng nhìn thấy
+     boder: làm viền -->
+
+     <!-- qua biên phải: float:right
+     qua biên trái: float:left -->
+
+<!-- inline là nằm trên cùng 1 dòng
+block là mỗi thằng nằm trên 1 hàng riêng biệt
+display là inline thì không đặt được width -->

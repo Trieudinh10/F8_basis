@@ -1,0 +1,31 @@
+/*Tạo thuộc tính css theo tag name: gọi tên thẻ(ex:h2 {}), điền thuộc tính vào ngoặc nhọn */
+h2 {
+    color: red;
+    /* `text-decoration: underline` là chữ gạch chân */
+    text-decoration: underline;
+    position: relative;
+    top: 100px; left: 150px;
+   
+}
+/*Tạo thuộc tính css bằng thuộc tính id để phân biệt với các thẻ cùng loại(ex:h1) khác: gọi tên thuộc tính(ex:#tên id {}), điền thuộc tính vào ngoặc nhọn */
+
+#the_id {
+    color: purple;
+    /* `font-style: italic` là chữ nghiêng */
+    font-style: italic;
+}
+
+/*Tạo thuộc tính css bằng thuộc tính class để phân biệt với các thẻ cùng loại(ex:h1) khác: gọi tên thuộc tính(ex:.tên class {}), điền thuộc tính vào ngoặc nhọn */
+/*Class dùng để gọi thuộc tính cho nhóm đối tượng có cùng đặc điểm với số lượng lớn hơn 1(id) và nhỏ hơn thẻ chính(ex:h1) */
+.the_class {
+    color: var(--text-color);
+}
+
+:root { /*tạo biến, gọi biến ra như hàng trên, nhiều chi tiết trùng màu, dùng cách này dễ cập nhật màu*/
+    --text-color: green;
+}
+
+#nut_nhan:active{
+    color: blue;
+    background-color: green;
+}
